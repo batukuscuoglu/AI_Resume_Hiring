@@ -8,33 +8,62 @@ export default function App() {
   const [openSection, setOpenSection] = useState(null);
   const [moduleCategory, setModuleCategory] = useState('Screening');
 
-  const projects = [
-    { title: 'Resume Screening', desc: 'Automated filtering of resumes using NLP and keyword matching.', url: '#' },
-    { title: 'Candidate Ranking', desc: 'Ranking candidates based on role fit and experience.', url: '#' },
-    { title: 'Diversity Analytics', desc: 'Insights on applicant diversity and fairness metrics.', url: '#' },
-    { title: 'Interview Scheduler', desc: 'Automated scheduling of interviews with calendar integrations.', url: '#' },
-    { title: 'Compliance Monitoring', desc: 'Ensure hiring practices adhere to legal and ethical standards.', url: '#' },
-  ];
+const projects = [
+  {
+    title: 'Fairness',
+    desc: 'Minimize bias by validating on diverse data and ensuring equitable treatment for all candidates.',
+    url: '/fairness'
+  },
+  {
+    title: 'Transparency',
+    desc: 'Explain scores with “Why This Score?” highlights and clear documentation of the AI process.',
+    url: '/transparency'
+  },
+  {
+    title: 'Privacy & Data Protection',
+    desc: 'Require consent, anonymize PII on upload, store raw PDFs encrypted and delete them post-processing.',
+    url: '/privacy'
+  },
+  {
+    title: 'Accountability',
+    desc: 'Keep immutable audit logs and allow human overrides to maintain responsibility over decisions.',
+    url: '/accountability'
+  },
+  {
+    title: 'Robustness & Safety',
+    desc: 'Handle malformed inputs gracefully and guard against adversarial or harmful content.',
+    url: '/robustness'
+  },
+  {
+    title: 'Human Oversight',
+    desc: 'Maintain HR in the loop with note-taking and the ability to override AI recommendations.',
+    url: '/human-oversight'
+  },
+];
+
 
   const highlights = [
-    { text: 'Fast Resume Screening', anim: { x: -50, y: 0 } },
-    { text: 'Bias Mitigation',       anim: { x: 0,   y: 50 } },
-    { text: 'In-depth Analytics',     anim: { x: 50,  y: 0 } },
-    { text: 'Secure Data Handling',   anim: { x: 0,   y: -50 } },
+    { text: 'AI-Powered Resume Screening', anim: { x: -50, y: 0 } },
+    { text: 'Anonymous, PII-Stripped Uploads', anim: { x: 0,   y: 50 } },
+    { text: '“Why This Score?” Explanations', anim: { x: 50,  y: 0 } },
+    { text: 'Secure Consent-Driven Data',   anim: { x: 0,   y: -50 } },
   ];
 
+
   const artistic = [
-    { emoji: '⚡', label: 'Efficiency' },
-    { emoji: '⚖️', label: 'Fairness'   },
-    { emoji: '🔍', label: 'Transparency' },
+    { emoji: '⚡', label: 'Efficient' },
+    { emoji: '⚖️', label: 'Fair'   },
+    { emoji: '🔍', label: 'Transparent' },
   ];
 
   const funFacts = [
-    { label: 'Resumes Processed', value: '10K+' },
-    { label: 'Companies Served',  value: '200+'  },
-    { label: 'Avg Screening Time',value: '<5s'   },
-    { label: 'Bias Incidents',     value: '0%'    },
+    { label: 'Cups of ☕ Consumed',    value: '50+'    },
+    { label: 'Resumes Screened',      value: '1K+'      },
+    { label: 'Lines of Code',         value: '2K+'      },
+    { label: 'Happy HR Users',        value: '100+' },
   ];
+
+
 
   const toggleSection = (id) =>
     setOpenSection(openSection === id ? null : id);
@@ -143,7 +172,7 @@ export default function App() {
 
 
 
-        {/* Features */}
+        {/* Principles */}
         <motion.section
           className="space-y-8"
           initial={{ opacity: 0 }}
@@ -151,7 +180,7 @@ export default function App() {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-bold text-center">Features</h2>
+          <h2 className="text-3xl font-bold text-center">Principles</h2>
           <div className="grid gap-10 md:grid-cols-3">
             {projects.map((proj, i) => (
               <motion.div
